@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BlogDotNet8.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BlogDotNet8.Controllers
 {
@@ -12,6 +13,18 @@ namespace BlogDotNet8.Controllers
         public IActionResult Post()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult Edit()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Post post)
+        {
+            return RedirectToAction("Index");
         }
     }
 }
