@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BlogDotNet8.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class initWithPostTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

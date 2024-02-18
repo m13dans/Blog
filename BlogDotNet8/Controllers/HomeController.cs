@@ -1,10 +1,17 @@
 ﻿using BlogDotNet8.Models;
 using Microsoft.AspNetCore.Mvc;
+using BlogDotNet8.Data;
+using BlogDotNet8.Data.Repository;
 
 namespace BlogDotNet8.Controllers
 {
     public class HomeController : Controller
     {
+        private IRepository _repo;
+        public HomeController(IRepository repo)
+        {
+            _repo = repo;
+        }
         public IActionResult Index()
         {
             return View();
@@ -18,13 +25,14 @@ namespace BlogDotNet8.Controllers
         [HttpGet]
         public IActionResult Edit()
         {
-            return View();
+            return View(new Post());
         }
 
         [HttpPost]
-        public IActionResult Edit(Post post)
+        public async Task<IActionResult> Edit(Post post)
         {
-            return RedirectToAction("Index");
+            _repo.AddPost(post);
+            return await _repo.SaveChangesAsync() ? RedirectToAction("index") : View();
         }
     }
 }
