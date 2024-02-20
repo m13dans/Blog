@@ -1,1 +1,12 @@
 ﻿<h2>This is home page !</h2>
+
+<div>
+    <ul>
+        @foreach(var post in Model)
+        {
+            <li>
+                <a>@post.Title</a>
+            </li>
+        }
+    </ul>
+</div>

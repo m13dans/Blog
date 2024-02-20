@@ -14,7 +14,8 @@ namespace BlogDotNet8.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var posts = _repo.GetAllPost();
+            return View(posts);
         }
 
         public IActionResult Post()
