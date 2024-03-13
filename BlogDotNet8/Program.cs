@@ -1,4 +1,5 @@
 using BlogDotNet8.Data;
+using BlogDotNet8.Data.FileManager;
 using BlogDotNet8.Data.Repository;
 using BlogDotNet8.Extensions;
 using Microsoft.AspNetCore.Identity;
@@ -26,8 +27,11 @@ builder.Services.ConfigureApplicationCookie(o =>
 });
 
 builder.Services.AddTransient<IRepository, Repository>();
+builder.Services.AddTransient<IFileManager, FileManager>();
 
 var app = builder.Build();
+
+app.UseStaticFiles();
 
 app.SeedRole();
 

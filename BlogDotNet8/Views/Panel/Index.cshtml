@@ -6,9 +6,7 @@
         @foreach (var post in Model)
         {
             <li>
-                <a asp-controller="Home" asp-action="Post" asp-route-id="@post.Id">
-                    @post.Title
-                </a>
+                @post.Title
                 -
                 <a asp-controller="Panel" asp-action="Edit" asp-route-id="@post.Id">
                     Edit

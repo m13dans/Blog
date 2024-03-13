@@ -24,4 +24,9 @@
     <_ContentIncludedByDefault Remove="Views\Auth\Login.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\content\Blog\" />
+    <Folder Include="wwwroot\content\static\" />
+  </ItemGroup>
+
 </Project>
