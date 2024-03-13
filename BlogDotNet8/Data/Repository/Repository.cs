@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using BlogDotNet8.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace BlogDotNet8.Data.Repository
 {

@@ -1,9 +1,8 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace BlogNet3.VIews.Home
+namespace BlogDotNet8.Views.Auth
 {
-    public class IndexModel : PageModel
+    public class LoginModel : PageModel
     {
         public void OnGet()
         {

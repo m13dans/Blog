@@ -1,5 +1,6 @@
 using BlogDotNet8.Data;
 using BlogDotNet8.Data.Repository;
+using BlogDotNet8.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,14 +11,28 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")
 ));
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<AppDbContext>();
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+{
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireDigit = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequiredLength = 6;
+})
+    .AddEntityFrameworkStores<AppDbContext>();
+
+builder.Services.ConfigureApplicationCookie(o =>
+{
+    o.LoginPath = "/Auth/Login";
+});
 
 builder.Services.AddTransient<IRepository, Repository>();
 
 var app = builder.Build();
 
+app.SeedRole();
+
 app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapDefaultControllerRoute();
 
