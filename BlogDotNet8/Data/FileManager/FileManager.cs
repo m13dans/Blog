@@ -25,10 +25,10 @@ public class FileManager : IFileManager
                 Directory.CreateDirectory(save_path);
             }
 
-            var dotIndex = image.FileName.LastIndexOf('.');
-            var mime = image.FileName.Substring(dotIndex);
-            // var extImage = Path.GetExtension(image.FileName);
-            var fileName = $"img_{DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss")}{mime}";
+            // var dotIndex = image.FileName.LastIndexOf('.');
+            // var mime = image.FileName.Substring(dotIndex);
+            var extImage = Path.GetExtension(image.FileName);
+            var fileName = $"img_{DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss")}{extImage}";
 
             using var fileStream = new FileStream(Path.Combine(save_path, fileName), FileMode.Create);
             await image.CopyToAsync(fileStream);

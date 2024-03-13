@@ -46,7 +46,7 @@ public class PanelController : Controller
             {
                 Id = post.Id,
                 Title = post.Title,
-                Body = post.Body
+                Body = post.Body,
             });
         }
     }

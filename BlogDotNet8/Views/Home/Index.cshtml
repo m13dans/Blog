@@ -8,9 +8,14 @@
         @foreach (var post in Model)
         {
             <li>
+                <div>
                 <a asp-controller="Home" asp-action="Post" asp-route-id="@post.Id">
                     @post.Title
                 </a>
+                </div>
+                <div>
+                   <img src="~/content/Blog/@post.Image" alt="imagePost" width="100">
+                </div>
             </li>
         }
     </ul>
