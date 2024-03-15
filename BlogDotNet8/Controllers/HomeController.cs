@@ -35,6 +35,5 @@ namespace BlogDotNet8.Controllers
             // var mime = image.Substring(image.LastIndexOf('.')) + 1;
             return new FileStreamResult(_fileManager.ImageStream(image), $"image/{ext}");
         }
-        
     }
 }
