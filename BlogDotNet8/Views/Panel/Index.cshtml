@@ -6,15 +6,16 @@
         @foreach (var post in Model)
         {
             <li>
-                @post.Title
-                -
-                <a asp-controller="Panel" asp-action="Edit" asp-route-id="@post.Id">
-                    Edit
-                </a>
-                -
-                <a asp-controller="Panel" asp-action="Remove" asp-route-id="@post.Id">
-                    Remove
-                </a>
+                <p>
+                    @post.Title -
+                    <a asp-controller="Panel" asp-action="Edit" asp-route-id="@post.Id">
+                        Edit
+                    </a>
+                    -
+                    <a asp-controller="Panel" asp-action="Remove" asp-route-id="@post.Id">
+                        Remove
+                    </a>
+                </p>
             </li>
         }
     </ul>

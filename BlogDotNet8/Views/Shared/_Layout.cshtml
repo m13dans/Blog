@@ -16,6 +16,7 @@
             @if (User.Identity!.IsAuthenticated)
             {
                 <a asp-controller="Auth" asp-action="Logout">Logout</a>
+                <a asp-controller="Panel" asp-action="Edit">Create Post</a>
             }
             else
             {
@@ -26,6 +27,7 @@
     <div>
         @RenderBody()
     </div>
+    @RenderSection("scripts", false)
 </body>
 
 </html>

@@ -1,15 +1,17 @@
 ﻿@model Post
 
 <div class="container">
+    <div>
+        <h2 class="post-title">@Model.Title</h2>
+    </div>
     <div class="post no-shadow">
         @if (!String.IsNullOrEmpty(Model.Image))
         {
             var image_path = $"/image/{Model.Image}";
             <img src="@image_path" >
-            <span class="title">@Model.Title</span>
         }
     </div>
     <div class="post-body">
-        @Model.Body
+        @Html.Raw(Model.Body)
     </div>
 </div>
