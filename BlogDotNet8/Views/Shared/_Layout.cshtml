@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>@ViewBag.Title</title>
+    <meta name="description" content="@ViewBag.Description">
+    <meta name="keywords" content="@ViewBag.Tags">
     <link rel="stylesheet" href="~/css/site.css">
 </head>
 
@@ -12,7 +15,9 @@
     <div>
         <nav>
             <a asp-controller="Home" asp-action="Index">Home Page</a>
+            <a asp-controller="Home" asp-action="Index" asp-route-category="programming">Programming</a>
             <a asp-controller="Panel" asp-action="Index">Admin Panel</a>
+
             @if (User.Identity!.IsAuthenticated)
             {
                 <a asp-controller="Auth" asp-action="Logout">Logout</a>

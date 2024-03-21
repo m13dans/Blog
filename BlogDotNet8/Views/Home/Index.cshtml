@@ -1,10 +1,22 @@
 ﻿@model IEnumerable<Post>
-@* <h2>This is home page !</h2> *@
-
+<h2 class=" title">This is home page !</h2>
+@{
+    ViewBag.Title = "Blog Website";
+    ViewBag.Description = "Blog About Programming and Gaming, with C# as main Programming Language";
+    ViewBag.Tags = "blog programming gaming travel";
+}
 @* <img src="~/content/static/CSharpImage1.jpeg" alt="CSharpLogo1"> *@
+<div>
+    <label>Category</label>
+    <select>
+        <option value="Travel">Travel</option>
+        <option value="Programming">Programming</option>
+        <option value="Gaming">Gaming</option>
+    </select>
+</div>
 
 <div class="main-img">
-    <span class="title">Down To Code</span>
+    @* <span class="title">Down To Code</span> *@
 </div>
 
 <div class="container">

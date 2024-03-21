@@ -15,9 +15,11 @@ namespace BlogDotNet8.Controllers
             _repo = repo;
             _fileManager = fileManager;
         }
-        public IActionResult Index()
+        public IActionResult Index(string category)
         {
-            var posts = _repo.GetAllPost();
+            var posts = string.IsNullOrEmpty(category)
+            ? _repo.GetAllPost()
+            : _repo.GetAllPost(category);
             return View(posts);
         }
 

@@ -20,7 +20,13 @@ public class AuthController : Controller
     [HttpPost]
     public async Task<IActionResult> Login(LoginViewModel loginVM)
     {
+        if (loginVM.UserName is null || loginVM.Password is null)
+        {
+            return View(loginVM);
+        }
+
         var result = await _signInMangaer.PasswordSignInAsync(loginVM.UserName, loginVM.Password, false, false);
+
         if (!result.Succeeded)
         {
             ModelState.AddModelError("UserName", "No Username Exist");

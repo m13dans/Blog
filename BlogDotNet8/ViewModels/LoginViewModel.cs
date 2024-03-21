@@ -1,7 +1,12 @@
-﻿namespace BlogDotNet8.ViewModels;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BlogDotNet8.ViewModels;
 
 public class LoginViewModel
 {
-    public string UserName { get; set; }
-    public string Password { get; set; }
+    [Required]
+    public string? UserName { get; set; }
+    [Required]
+    [DataType(DataType.Password)]
+    public string? Password { get; set; }
 }

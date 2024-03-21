@@ -1,5 +1,13 @@
 ﻿@model Post
 
+@{
+    ViewBag.Title = Model.Title;
+    ViewBag.Description = Model.Description;
+
+    var tags = $"{Model.Tags.Replace(',', ' ')} {Model.Category}";
+    ViewBag.Tags = $"{tags.Replace("  ", " ")}";
+}
+
 <div class="container">
     <div>
         <h2 class="post-title">@Model.Title</h2>

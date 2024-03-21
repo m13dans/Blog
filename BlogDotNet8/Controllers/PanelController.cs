@@ -47,7 +47,11 @@ public class PanelController : Controller
                 Id = post.Id,
                 Title = post.Title,
                 Body = post.Body,
-                CurrentImage = post.Image
+                CurrentImage = post.Image,
+                Description = post.Description,
+                Category = post.Category,
+                Tags = post.Tags,
+
             });
         }
     }
@@ -59,7 +63,10 @@ public class PanelController : Controller
         {
             Id = postVM.Id,
             Title = postVM.Title,
-            Body = postVM.Body
+            Body = postVM.Body,
+            Category = postVM.Category,
+            Description = postVM.Description,
+            Tags = postVM.Tags,
         };
 
         if (postVM.Image is null)
